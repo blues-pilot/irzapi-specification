@@ -1,0 +1,48 @@
+openapi: "3.0.1"
+info:
+  title: "irzapi"
+  version: "2024-06-11 18:47:35UTC"
+servers:
+- url: "https://feppxdl6zd.execute-api.us-west-2.amazonaws.com/{basePath}"
+  variables:
+    basePath:
+      default: ""
+paths:
+  /device:
+    get:
+      responses:
+        default:
+          description: "Default response for GET /device"
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:106323668612:function:irzapi/invocations"
+        connectionType: "INTERNET"
+  /device/{deviceid}:
+    get:
+      responses:
+        default:
+          description: "Default response for GET /device/{deviceid}"
+      x-amazon-apigateway-integration:
+        payloadFormatVersion: "2.0"
+        type: "aws_proxy"
+        httpMethod: "POST"
+        uri: "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:106323668612:function:irzapi/invocations"
+        connectionType: "INTERNET"
+    parameters:
+    - name: "deviceid"
+      in: "path"
+      description: "Generated path parameter for deviceid"
+      required: true
+      schema:
+        type: "string"
+components:
+  x-amazon-apigateway-integrations:
+    unusedIntegration_3f8h071:
+      payloadFormatVersion: "2.0"
+      type: "aws_proxy"
+      httpMethod: "POST"
+      uri: "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:106323668612:function:irzapi/invocations"
+      connectionType: "INTERNET"
+x-amazon-apigateway-importexport-version: "1.0"
